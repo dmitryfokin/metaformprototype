@@ -19,6 +19,7 @@ export default () => ({
       tag: 'body',
       styles: {
         margin: 0,
+        'background-color': '#000 !important',
       },
       hooks: {
         async init() {
@@ -38,7 +39,10 @@ export default () => ({
           tag: 'div',
           attrs: {
             id: 'screenConsole',
-          },
+            styles: {
+                'background-color': '#000 !important',
+              },
+            },
           children: [
             {
               tag: 'div',
@@ -135,83 +139,19 @@ export default () => ({
             {
               tag: 'div',
               attrs: {
-                id: 'panelScroll',
+                class: 'container-fluid',
               },
               children: [
-                {
-                  tag: 'div',
-                  attrs: {
-                    id: 'controlScroll',
-                  },
-                },
-              ],
-            },
-            {
-              tag: 'div',
-              attrs: {
-                id: 'panelConsole',
-              },
-              children: [
-                {
-                  tag: 'div',
-                  attrs: {
-                    id: 'controlShadow',
-                  },
-                  children: [
-                    {
-                      tag: 'div',
-                      children: [
-                        {
-                          tag: 'img',
-                          attrs: {
-                            width: '240',
-                            src: './metarhia.svg',
-                          },
-                        },
-                      ],
-                    },
-                    {
-                      tag: 'div',
-                      text: 'Menu',
-                    },
-                    // { path: '../components/mainMenu', base: import.meta.url }
-                  ],
-                },
-                {
-                  tag: 'div',
-                  attrs: {
-                    id: 'controlBrowse',
-                  },
-                  children: [
-                    {
-                      tag: 'div',
-                      attrs: {
-                        id: 'colsoleIndent',
-                      },
-                    },
-                    {
-                      tag: 'div',
-                      attrs: {
-                        id: 'controlInput',
-                      },
-                    },
-                  ],
-                },
-                {
-                  tag: 'div',
-                  attrs: {
-                    id: 'controlKeyboard',
-                  },
-                },
-                {
-                  tag: 'div',
-                  attrs: {
-                    id: 'controlCommand',
-                  },
-                },
+                { path: '../components/navbar', base: import.meta.url },
               ],
             },
           ],
+        },
+        {
+          tag: 'script',
+          attrs: {
+            src: 'lib/bootstrap.bundle.js',
+          },
         },
       ],
     },

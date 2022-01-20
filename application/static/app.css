@@ -21,7 +21,7 @@ html, body {
 body {
   height: 100%;
 }
-a {
+/* a {
   background: #7FD900;
   color: #000;
   padding: 1px 4px;
@@ -49,7 +49,7 @@ a.services {
 }
 a:hover {
   background: #FFFFFF;
-}
+} */
 input, textarea {
   -webkit-border-radius: 0;
   -webkit-touch-callout: text;
@@ -64,9 +64,7 @@ ul,ol {
 }
 #screenConsole {
   height: 100%;
-}
-#screenConsole > div {
-  overflow: hidden;
+  background-color: #000;
 }
 #panelColors {
   height: 100%;

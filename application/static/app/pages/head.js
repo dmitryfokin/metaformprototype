@@ -33,6 +33,13 @@ export default () => ({
       },
     },
     {
+      tag: 'link',
+      attrs: {
+        rel: 'stylesheet',
+        href: 'lib/bootstrap.css',
+      },
+    },
+    {
       tag: 'meta',
       attrs: {
         name: 'HandheldFriendly',

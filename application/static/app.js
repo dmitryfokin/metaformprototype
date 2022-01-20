@@ -6,6 +6,11 @@ class Application {
   constructor() {
     const protocol = location.protocol === 'http:' ? 'ws' : 'wss';
     this.metacom = Metacom.create(`${protocol}://${location.host}/api`);
+    this.generationID = 1;
+  }
+
+  generateID() {
+    return this.generationID++;
   }
 }
 
