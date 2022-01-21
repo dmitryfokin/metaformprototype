@@ -9,9 +9,12 @@ export default class FormsManager  {
     console.log(pathToForm);
   }
 
-  openForm(pathToForm) {
+  async openForm(pathToForm) {
+    const formData = await api.workspace.openForm({pathToForm});
+    console.log({formData: formData});
+
+
     this.forms.push({pathToForm});
-    console.log(pathToForm);
     // console.log(`openForm: ${pathToForm}`);
   }
 }

@@ -45,7 +45,7 @@
               en: 'Application',
               ru: 'Приложение', 
             },
-            link: 'entities.Account.list',
+            link: 'systemForms.applicationConfiguratorForm',
           },
         ],
       },

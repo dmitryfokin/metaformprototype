@@ -19,7 +19,7 @@ class Application {
 window.addEventListener('load', async () => {
   window.application = new Application();
   window.api = window.application.metacom.api;
-  await application.metacom.load('auth', 'workbenche');
+  await application.metacom.load('auth', 'workbenche', 'workspace');
   const token = localStorage.getItem('metarhia.session.token');
   let logged = false;
   if (token) {
