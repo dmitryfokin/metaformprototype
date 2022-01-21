@@ -1,20 +1,23 @@
 ({
   form: {
+    name: 'systemForms.applicationConfiguratorForm',
     formType: 'free',
-    mainSchema: 'entities.Account',
+    mainSchema: 'system',
     store: 'memory',
     allow: 'read',
-    schema: 'Account',
+    schema: 'system',
   },
-  
+
   formData: {
-    list: 'entities.Account.list',
+    name: { type: 'string' },
+    showProp: { type: 'bolean' },
+    prop: { type: 'string' },
   },
   async formModule() {
-    b.init = async() => {
+    b.init = async () => {
       console.log('back init');
     };
-    f.init = async() => {
+    f.init = async () => {
       console.log('front init');
       console.log('get value on front from back', b.getValue());
     };
@@ -25,52 +28,36 @@
 
   formView: {
     title: {
-      text: {en: 'Accounts list'},
+      text: { en: 'Application configurator' },
       titleShow: true,
     },
     children: [
       {
-        typeElement: 'groupElements',
+        typeElement: 'group',
         title: {
-          show: false,
+          titleShow: false,
         },
         children: [
           {
-            typeElement: 'gridElement',
+            typeElement: 'field',
             title: {
-              titleShow: false,
+              text: { en: 'name' },
             },
-            dataSource: 'list',
-            columns: [
-              {
-                typeElement: 'fieldElement',
-                title: {
-                  text: {en: 'login'},
-                },
-                dataSource: 'list.login',
-              },
-              {
-                typeElement: 'fieldElement',
-                title: {
-                  text: {en: 'email'},
-                },
-                dataSource: 'list.email',
-              },
-              {
-                typeElement: 'fieldElement',
-                title: {
-                  text: {en: 'phone'},
-                },
-                dataSource: 'list.phone',
-              },
-              {
-                typeElement: 'fieldElement',
-                title: {
-                  text: {en: 'active'},
-                },
-                dataSource: 'list.active',
-              },
-            ],
+            dataSource: 'name',
+          },
+          {
+            typeElement: 'checkbox',
+            title: {
+              text: { en: 'Show prop' },
+            },
+            dataSource: 'showProp',
+          },
+          {
+            typeElement: 'field',
+            title: {
+              text: { en: 'Prop' },
+            },
+            dataSource: 'prop',
           },
         ],
       },
