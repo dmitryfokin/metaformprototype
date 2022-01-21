@@ -3,23 +3,28 @@ const createMenuItem = (menuItem, dropdownItem = false) => {
   const isSubMenu = (menuItem.typeMenuItem === 'SubMenu');
   const itemID = 'navbarDropdown' + application.generateID();
 
-  //console.log({menuItem});
-
   const getNavLink = () => {
     return [
       {
-        tag: 'a',
-        attrs: dropdownItem
-          ? {
-            class: 'dropdown-item',
-            href: '#',
-          }
-          : {
-            class: 'nav-link',
-            'aria-current': 'page',
-            href: '#',
+        tag: 'div',
+        children: [
+          {
+            tag: 'div',
+            attrs: dropdownItem
+              ? {
+                class: 'dropdown-item',
+                href: '#',
+                onclick: `application.formsManager.openForm('${menuItem.link}')`
+              }
+              : {
+                class: 'nav-link',
+                'aria-current': 'page',
+                href: '#',
+                onclick: `application.formsManager.openForm('${menuItem.link}')`
+              },
+            text: menuItem.title.en,
           },
-        text: menuItem.title.en,
+        ],
       },
     ];
   };
@@ -57,15 +62,11 @@ const createMenuItem = (menuItem, dropdownItem = false) => {
     children: isSubMenu ? getNavLinkDropdown() : getNavLink(),
   };
 
-  //console.log({view});
-
   return view;
 };
 
 const getNavBar = async () => {
   const menuItems = await api.workbenche.getPanel();
-  console.log({ ...menuItems });
-
   const arr = menuItems.menu.items.map(createMenuItem);
 
   const view = {
