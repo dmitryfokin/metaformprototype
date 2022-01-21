@@ -1,7 +1,7 @@
 ({
   access: 'public',
   method: async () => {
-    console.debug({ data: domain.workbenches });
-    return { menu: domain.workbenches.main.mainMenu.panel };
+    console.debug({a: await lib.workbenche.getPanel.method()});
+    return { menu: await lib.workbenche.getPanel.method() };
   },
 });

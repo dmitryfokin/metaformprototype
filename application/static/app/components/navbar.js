@@ -63,10 +63,10 @@ const createMenuItem = (menuItem, dropdownItem = false) => {
 };
 
 const getNavBar = async () => {
-  const manuItems = await api.workbenche.getPanel();
+  const menuItems = await api.workbenche.getPanel();
+  console.log({ ...menuItems });
 
-  const arr = manuItems.menu.items.map(createMenuItem);
-  console.log({ arr });
+  const arr = menuItems.menu.items.map(createMenuItem);
 
   const view = {
     tag: 'nav',
@@ -132,26 +132,6 @@ const getNavBar = async () => {
                   class: 'navbar-nav me-auto mb-2 mb-lg-0',
                 },
                 children: arr,
-                // [
-                //   { 
-                //     tag: 'li', 
-                //     attrs: { 
-                //       class: 'nav-item', 
-                //     }, 
-                //     children: 
-                //     // [
-                //     //   {
-                //     //     tag: 'a',
-                //     //     attrs: { 
-                //     //       class: 'nav-link', //text-success
-                //     //       'aria-current': 'page',
-                //     //       href: '#',
-                //     //     }, 
-                //     //     text: 'Home',
-                //     //   },
-                //     // ],
-                //   }
-                // ],
               },
             ],
           },
