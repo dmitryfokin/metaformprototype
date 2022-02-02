@@ -1,6 +1,4 @@
 async (formData) => {
-  console.debug('init form data');
-
   const formDataValues = {};
 
   const typeToValue = new Map();
@@ -13,11 +11,9 @@ async (formData) => {
     if (typeToValue.has(formData[key].type)) {
       formDataValues[key] = typeToValue.get(formData[key].type);
     } else {
-
+      // TODO: load ref & obj data
     };
-
   };
-
   
   return formDataValues;
 };
