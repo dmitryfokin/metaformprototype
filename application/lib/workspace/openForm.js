@@ -30,7 +30,7 @@
       },
       formData: await lib.formddl.initFormData(formData.formData),
       formView: formData.formView,
-      formViewClient: undefined,
+      formViewClient: {},
     });
 
     return { ...context.formsManager.forms.get(context.counterIDForms) };
