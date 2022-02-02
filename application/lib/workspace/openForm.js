@@ -11,15 +11,28 @@
     //const formData = lib.workspace.formsCache.get(pathToForm);
     const formData = domain.systemForms.applicationConfiguratorForm;
 
+    const formModuleFront = "";
+
+    console.debug(formData.formModule.Constructor);
+
+    for (const key of Object.keys(formData.formModule)) {
+      console.debug(key);
+    };
+
     context.formsManager.forms.set(context.counterIDForms, {
       id: context.counterIDForms,
       pathToForm,
-      form: formData.form,
-      formData: formData.formData,
-      formModule: formData.formModule,
+      formDDL: {
+        form: formData.form,
+        formData: formData.formData,
+        formModule: formData.formModule,
+        formView: formData.formView,
+      },
+      formData: await lib.formddl.initFormData(formData.formData),
       formView: formData.formView,
+      formViewClient: undefined,
     });
 
-    return { formData: context.formsManager.forms.get(context.counterIDForms) };
+    return { ...context.formsManager.forms.get(context.counterIDForms) };
   },
 });

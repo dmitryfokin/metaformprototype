@@ -1,6 +1,6 @@
 export default class FormsManager  {
   constructor() {
-    this.forms = [];
+    this.forms = new Map();
 
   }
 
@@ -10,11 +10,11 @@ export default class FormsManager  {
   }
 
   async openForm(pathToForm) {
-    const formData = await api.workspace.openForm({pathToForm});
-    console.log({formData: formData});
+    const form = await api.workspace.openForm({pathToForm});
+    // console.log({...form});
 
-
-    this.forms.push({pathToForm});
-    // console.log(`openForm: ${pathToForm}`);
+    this.forms.set(form.formData.id, {...form.formData});
+    //this.forms.push({pathToForm});
+   console.dir(this.forms.get(form.formData.id));
   }
 }

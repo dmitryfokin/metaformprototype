@@ -9,9 +9,30 @@
   },
 
   formData: {
-    name: { type: 'string' },
-    showProp: { type: 'bolean' },
-    prop: { type: 'string' },
+    name: {
+      type: 'string',
+      title: {
+        text: {
+          en: 'Name',
+        },
+      }
+    },
+    showProp: {
+      type: 'boolean',
+      title: {
+        text: {
+          en: 'Show prop',
+        },
+      },
+    },
+    prop: {
+      type: 'string',
+      title: {
+        text: {
+          en: 'Prop',
+        },
+      },
+    },
   },
   async formModule() {
     b.init = async () => {
@@ -41,21 +62,21 @@
           {
             typeElement: 'field',
             title: {
-              text: { en: 'name' },
+              text: { en: 'name', },
             },
             dataSource: 'name',
           },
           {
             typeElement: 'checkbox',
             title: {
-              text: { en: 'Show prop' },
+              text: { en: 'Show prop', },
             },
             dataSource: 'showProp',
           },
           {
             typeElement: 'field',
             title: {
-              text: { en: 'Prop' },
+              text: { en: 'Prop', },
             },
             dataSource: 'prop',
           },
