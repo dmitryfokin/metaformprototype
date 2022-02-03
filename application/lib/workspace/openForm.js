@@ -29,6 +29,7 @@
         formView: formData.formView,
       },
       formData: await lib.formddl.initFormData(formData.formData),
+      formElements: await lib.formddl.initFormElements(formData.formView),
       formView: formData.formView,
       formViewClient: {},
     });

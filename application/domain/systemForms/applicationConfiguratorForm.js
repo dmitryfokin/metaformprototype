@@ -55,12 +55,14 @@
     children: [
       {
         typeElement: 'group',
+        nameElement: '$groupMain',
         title: {
           titleShow: false,
         },
         children: [
           {
             typeElement: 'field',
+            nameElement: '$name',
             title: {
               text: { en: 'name', },
             },
@@ -68,6 +70,7 @@
           },
           {
             typeElement: 'checkbox',
+            nameElement: '$showProp',
             title: {
               text: { en: 'Show prop', },
             },
@@ -75,6 +78,7 @@
           },
           {
             typeElement: 'field',
+            nameElement: '$prop',
             title: {
               text: { en: 'Prop', },
             },
