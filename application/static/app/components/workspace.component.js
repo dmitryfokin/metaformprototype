@@ -15,7 +15,7 @@ export default () => ({
   children: [],
   methods: {
     async showForm(formDefinition) {
-      console.dir(formDefinition);
+      formDefinition.webWorkspaceComponent = this;
       const formComponent = { 
         path: './formddl/form.component.js',
         base: import.meta.url, 
@@ -28,6 +28,10 @@ export default () => ({
       
       formDefinition.webComponents.form.methods.showMessage('show message from parent');
 
+      console.dir(formDefinition);
+    },
+    showMessage(message) {
+      console.dir(`workspace - "${message}" response`);
     },
   },
   hooks: {

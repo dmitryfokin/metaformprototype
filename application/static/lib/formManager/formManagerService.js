@@ -9,6 +9,7 @@ export default class FormsManager  {
     const form = await api.workspace.openForm({pathToForm});
     this.forms.set(form.formData.id, {...form.formData});
     const formDefinition = this.forms.get(form.formData.id);
+    formDefinition.webWorkSpaceComponent = {};
     formDefinition.webComponents = {};
     await showForm(formDefinition);
 

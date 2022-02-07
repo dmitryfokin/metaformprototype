@@ -10,8 +10,9 @@ export default ({ formDefinition }) => ({
     height: '100%',
   },
   methods: {
-    async showMessage(message) {
-      console.dir(`form ${formDefinition.id} - ${message}`);
+    showMessage(message) {
+      console.dir(`form #${formDefinition.id} - ${message}`);
+      formDefinition.webWorkspaceComponent.methods.showMessage(`Hi from form #${formDefinition.id}`);
     },
   },
   children: [
