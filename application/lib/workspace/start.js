@@ -1,6 +1,6 @@
 async () => {
   //if (application.worker.id === 'W1') {
-    console.debug(`Start form DDL plugin on worker ${application.worker.id}`);
+    //console.debug(`Start form DDL plugin on worker ${application.worker.id}`);
 
     lib.workspace.formsCache.set('systemForms.applicationConfiguratorForm', domain.systemForms.applicationConfiguratorForm);
     //console.debug(lib.workspace.formsCache);   

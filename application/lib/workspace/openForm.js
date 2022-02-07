@@ -7,13 +7,9 @@
     if (!context.counterIDForms) context.counterIDForms = 0;
     context.counterIDForms++;
 
-
-    //const formData = lib.workspace.formsCache.get(pathToForm);
     const formData = domain.systemForms.applicationConfiguratorForm;
 
     const formModuleFront = "";
-
-    console.debug(formData.formModule.Constructor);
 
     for (const key of Object.keys(formData.formModule)) {
       console.debug(key);

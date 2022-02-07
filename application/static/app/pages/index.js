@@ -36,13 +36,13 @@ export default () => ({
       },
       children: [
         {
-          tag: 'div',
+          tag: 'section',
           attrs: {
-            id: 'screenConsole',
+            id: 'main',
             styles: {
-                'background-color': '#000 !important',
-              },
+              'background-color': '#000 !important',
             },
+          },
           children: [
             {
               tag: 'div',
@@ -137,14 +137,15 @@ export default () => ({
               ],
             },
             {
-              tag: 'div',
+              tag: 'header',
               attrs: {
                 class: 'container-fluid',
               },
               children: [
-                { path: '../components/navbar', base: import.meta.url },
+                { path: '../components/navbar.component.js', base: import.meta.url, },
               ],
             },
+            { path: '../components/workspace.component.js',base: import.meta.url, },
           ],
         },
         {

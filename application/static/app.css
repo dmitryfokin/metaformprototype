@@ -62,7 +62,7 @@ input, textarea {
 ul,ol {
   padding: 0 0 0 30px;
 }
-#screenConsole {
+#main {
   height: 100%;
   background-color: #000;
 }

@@ -1,12 +1,13 @@
-export const toSwayer = async (formView) => {
-  const formViewClient = {
-    tag: 'div',
-    children: [
-      {tag: 'p', text: 'form'}
-    ]
-  };
-  console.dir(formViewClient);
-  return formViewClient;
+const workspaceMethods = {};
+
+// form manager
+
+export const showForm = async (formDefinition) => {
+  await workspaceMethods.showForm(formDefinition);
 };
 
-// export default {toSwayer}
+// swayer
+
+export const setAdapterMethods = async (methods) => {
+  workspaceMethods.showForm = methods.showForm;
+};

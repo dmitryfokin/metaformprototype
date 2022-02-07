@@ -23,7 +23,7 @@ async (formView) => {
 
   getChildren(formView.children);
 
-  console.debug({...formElements});
+  //console.debug({...formElements});
 
   return formElements;
 };
