@@ -16,15 +16,22 @@ export default () => ({
   methods: {
     async showForm(formDefinition) {
       console.dir(formDefinition);
-      const formComponent = { path: './formddl/form.component.js',base: import.meta.url, };
+      const formComponent = { 
+        path: './formddl/form.component.js',
+        base: import.meta.url, 
+        args: {
+          formDefinition: formDefinition,
+        },
+      };
       await this.children.splice(0, 1, formComponent);
-      formDefinition.webComponent = this.children[0];
-      formDefinition.webComponent.methods.showMessage('show message from parent');
+      formDefinition.webComponents.form = this.children[0];
+      
+      formDefinition.webComponents.form.methods.showMessage('show message from parent');
+
     },
   },
   hooks: {
     init() {
-      console.log('init workspace');
       setAdapterMethods({showForm: this.methods.showForm});
     },
   },

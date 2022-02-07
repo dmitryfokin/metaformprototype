@@ -1,6 +1,6 @@
 
 /** @returns {Schema} */
-export default () => ({
+export default ({ formDefinition }) => ({
   tag: 'section',
   attrs: {
     //id: 'workspace',
@@ -11,18 +11,18 @@ export default () => ({
   },
   methods: {
     async showMessage(message) {
-      console.dir(message);
+      console.dir(`form ${formDefinition.id} - ${message}`);
     },
   },
   children: [
     {
       tag: 'div',
-      text: 'form',
+      text: `form #${formDefinition.id}`,
       styles: {
         border: '2px solid #0033DD',
         height: '36px',
         color: '#009933',
       },
-        },
+    },
   ],
 });
