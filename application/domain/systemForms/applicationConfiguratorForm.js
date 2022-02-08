@@ -48,23 +48,25 @@
   },
 
   formView: {
-    title: {
-      text: { en: 'Application configurator' },
+    form: {
+      typeElement: 'form',
+      title: {
+        en: 'Application configurator',
+        ru: 'Конфигуратор приложения',
+      },
       titleShow: true,
     },
     children: [
       {
         typeElement: 'group',
         nameElement: '$groupMain',
-        title: {
-          titleShow: false,
-        },
+        titleShow: false,
         children: [
           {
             typeElement: 'field',
             nameElement: '$name',
             title: {
-              text: { en: 'name', },
+              en: 'name',
             },
             dataSource: 'name',
           },
@@ -72,7 +74,7 @@
             typeElement: 'checkbox',
             nameElement: '$showProp',
             title: {
-              text: { en: 'Show prop', },
+              en: 'Show prop',
             },
             dataSource: 'showProp',
           },
@@ -80,7 +82,7 @@
             typeElement: 'field',
             nameElement: '$prop',
             title: {
-              text: { en: 'Prop', },
+              en: 'Prop',
             },
             dataSource: 'prop',
           },

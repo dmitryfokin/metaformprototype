@@ -1,5 +1,10 @@
 async (formView) => {
-  const formElements = {};
+  const formElements = {
+    $form: {
+      ...formView.form,
+      children: [],
+    },
+  };
 
   const getChildren = (children, parent = null) => {
     for (const el of children) {
@@ -21,7 +26,7 @@ async (formView) => {
     };
   };
 
-  getChildren(formView.children);
+  getChildren(formView.children, formElements.$form);
 
   //console.debug({...formElements});
 

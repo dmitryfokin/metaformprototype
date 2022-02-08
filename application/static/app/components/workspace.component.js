@@ -24,14 +24,6 @@ export default () => ({
         },
       };
       await this.children.splice(0, 1, formComponent);
-      formDefinition.webComponents.form = this.children[0];
-      
-      formDefinition.webComponents.form.methods.showMessage('show message from parent');
-
-      console.dir(formDefinition);
-    },
-    showMessage(message) {
-      console.dir(`workspace - "${message}" response`);
     },
   },
   hooks: {

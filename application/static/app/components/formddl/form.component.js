@@ -1,28 +1,39 @@
-
 /** @returns {Schema} */
 export default ({ formDefinition }) => ({
   tag: 'section',
+  state: {
+    formDefinition,
+    formElement: formDefinition.formElements.$form,
+  },
   attrs: {
-    //id: 'workspace',
+    hidden: true,
   },
   styles: {
     border: '2px solid #0033DD',
     height: '100%',
   },
-  methods: {
-    showMessage(message) {
-      console.dir(`form #${formDefinition.id} - ${message}`);
-      formDefinition.webWorkspaceComponent.methods.showMessage(`Hi from form #${formDefinition.id}`);
+  hooks: {
+    init() {
+      this.state.formElement.webComponents.form = this;
     },
   },
   children: [
     {
       tag: 'div',
-      text: `form #${formDefinition.id}`,
+      text: `form #`,
+      state: {
+        formDefinition,
+        formElement: formDefinition.formElements.$form,
+      },
       styles: {
-        border: '2px solid #0033DD',
+        borderBottom: '1px solid #0033DD',
         height: '36px',
-        color: '#009933',
+        color: '#88ffff',
+      },
+      hooks: {
+        init() {
+          this.state.formElement.webComponents.formHead = this;
+        },
       },
     },
   ],
