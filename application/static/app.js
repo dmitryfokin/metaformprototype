@@ -9,6 +9,7 @@ class Application {
     this.metacom = Metacom.create(`${protocol}://${location.host}/api`);
     this.generationID = 1;
     this.formsManager = new FormsManager();
+    this.i18n = 'en';
   }
 
   generateID() {
