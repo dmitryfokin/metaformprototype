@@ -1,8 +1,11 @@
 async (formView) => {
   const formElements = {
     $form: {
-      ...formView.form,
-      children: [],
+      definition: {
+        ...formView.form,
+        children: [],
+      },
+      webComponents: {},
     },
   };
 
@@ -13,12 +16,15 @@ async (formView) => {
       }
 
       formElements[el.nameElement] = {
-        ...el,
-        parent: parent && parent.nameElement,
-        children: [],
+        definition: {
+          ...el,
+          parent: parent && parent.definition.nameElement,
+          children: [],
+        },
+        webComponents: {},
       };
 
-      if (parent) parent.children.push(el.nameElement);
+      if (parent) parent.definition.children.push(el.nameElement);
 
       if (el.children && el.children.length > 0) {
         getChildren(el.children, formElements[el.nameElement]);
@@ -27,8 +33,6 @@ async (formView) => {
   };
 
   getChildren(formView.children, formElements.$form);
-
-  //console.debug({...formElements});
 
   return formElements;
 };

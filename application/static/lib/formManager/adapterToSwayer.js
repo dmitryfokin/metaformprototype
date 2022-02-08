@@ -8,7 +8,7 @@ const FORM_ELEMENT = {
     { nameData: 'title', webComponent: 'formHead', nameParam: 'text', fn: getTitle },
   ],
   attrs: [
-    { name: 'hidden', webComponent: 'form' },
+    { nameData: 'hidden', webComponent: 'form', nameParam: 'hidden', },
   ],
 }
 
@@ -39,19 +39,18 @@ const bindComponentsToData = async (formDefinition) => {
           el[param.nameData] = param.fn
             ? param.fn(el.definition[param.nameData])
             : el.definition[param.nameData];
-
         };
       };
 
       for (const i in elementSpecification.attrs) {
         const attr = elementSpecification.attrs[i];
-        Object.defineProperty(el, attr.name, {
+        Object.defineProperty(el, attr.nameData, {
           get() {
-            return el.webComponents[attr.webComponent].attrs[attr.name];
+            return el.webComponents[attr.webComponent].attrs[attr.nameParam];
           },
           set(value) {
             // TODO: проверить типизацию
-            el.webComponents[attr.webComponent].attrs[attr.name] = value;
+            el.webComponents[attr.webComponent].attrs[attr.nameParam] = value;
           },
         });
       };
@@ -66,7 +65,8 @@ export const showForm = async (formDefinition) => {
   console.dir(formDefinition.formElements);
   await bindComponentsToData(formDefinition);
 
-  // formDefinition.formElements.$form.title = 'заголовок привязанный к formddl';
+  formDefinition.formElements.$form.title = formDefinition.formElements.$form.title 
+  + ` #${formDefinition.id}`;
   formDefinition.formElements.$form.hidden = false;
 };
 

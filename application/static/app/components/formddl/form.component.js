@@ -29,9 +29,11 @@ export default ({ formDefinition }) => ({
         borderBottom: '1px solid #0033DD',
         height: '36px',
         color: '#88ffff',
+        padding: '3px',
       },
       hooks: {
         init() {
+          console.dir(this.state.formElement);
           this.state.formElement.webComponents.formHead = this;
         },
       },
