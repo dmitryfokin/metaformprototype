@@ -21,6 +21,15 @@ window.addEventListener('load', async () => {
   window.application = new Application();
   window.api = window.application.metacom.api;
   await application.metacom.load('auth', 'workbenche', 'workspace');
+
+  api.workspace.on('formDataUpload', (data)=>{
+    application.formsManager.uploadFormData(data);
+  });
+
+  api.workspace.on('backEvent', (data)=>{
+    application.formsManager.backEvent(data);
+  });
+
   const token = localStorage.getItem('metarhia.session.token');
   let logged = false;
   if (token) {

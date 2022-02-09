@@ -5,12 +5,15 @@ const workspaceMethods = {};
 // elements specification
 const FORM_ELEMENT = {
   params: [
-    { nameData: 'title', webComponent: 'formHead', nameParam: 'text', fn: getTitle },
+    { nameData: 'title', webComponent: 'formTitle', nameParam: 'text', fn: getTitle },
   ],
   attrs: [
     { nameData: 'hidden', webComponent: 'form', nameParam: 'hidden', },
   ],
-}
+  methods: [
+    { nameMethod: 'closeForm', webComponent: 'form', fn: 'closeForm'},
+  ],
+};
 
 const FORM_ELEMENTS_SPECIFICATION = new Map();
 FORM_ELEMENTS_SPECIFICATION.set('form', FORM_ELEMENT);
@@ -57,20 +60,20 @@ const bindComponentsToData = async (formDefinition) => {
 
     };
   };
-}
+};
 
 // form manager
 export const showForm = async (formDefinition) => {
   await workspaceMethods.showForm(formDefinition);
-  console.dir(formDefinition.formElements);
   await bindComponentsToData(formDefinition);
+};
 
-  formDefinition.formElements.$form.title = formDefinition.formElements.$form.title 
-  + ` #${formDefinition.id}`;
-  formDefinition.formElements.$form.hidden = false;
+export const closeForm = async (formDefinition) => {
+  await workspaceMethods.closeForm();
 };
 
 // swayer
 export const setAdapterMethods = async (methods) => {
   workspaceMethods.showForm = methods.showForm;
+  workspaceMethods.closeForm = methods.closeForm;
 };

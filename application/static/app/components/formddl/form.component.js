@@ -19,23 +19,10 @@ export default ({ formDefinition }) => ({
   },
   children: [
     {
-      tag: 'div',
-      text: `form #`,
-      state: {
-        formDefinition,
-        formElement: formDefinition.formElements.$form,
-      },
-      styles: {
-        borderBottom: '1px solid #0033DD',
-        height: '36px',
-        color: '#88ffff',
-        padding: '3px',
-      },
-      hooks: {
-        init() {
-          console.dir(this.state.formElement);
-          this.state.formElement.webComponents.formHead = this;
-        },
+      path: './formHead.component.js',
+      base: import.meta.url,
+      args: {
+        formDefinition: formDefinition,
       },
     },
   ],

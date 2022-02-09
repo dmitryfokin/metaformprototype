@@ -25,10 +25,16 @@ export default () => ({
       };
       await this.children.splice(0, 1, formComponent);
     },
+    async closeForm() {
+      await this.children.splice(0, 1);
+    },
   },
   hooks: {
     init() {
-      setAdapterMethods({showForm: this.methods.showForm});
+      setAdapterMethods({
+        showForm: this.methods.showForm,
+        closeForm: this.methods.closeForm,
+      });
     },
   },
 });
