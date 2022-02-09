@@ -13,17 +13,20 @@ export default ({ formDefinition }) => ({
     height: '100%',
   },
   hooks: {
-    init() {
+    async init() {
+      console.log('form init');
       this.state.formElement.webComponents.form = this;
+
+      const formHead = {
+        path: './formHead.component.js',
+        base: import.meta.url,
+        args: {
+          formDefinition: formDefinition,
+        },
+      };
+      await this.children.push(formHead);
+
     },
   },
-  children: [
-    {
-      path: './formHead.component.js',
-      base: import.meta.url,
-      args: {
-        formDefinition: formDefinition,
-      },
-    },
-  ],
+  children: [],
 });

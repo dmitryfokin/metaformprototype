@@ -11,7 +11,7 @@ const FORM_ELEMENT = {
     { nameData: 'hidden', webComponent: 'form', nameParam: 'hidden', },
   ],
   methods: [
-    { nameMethod: 'closeForm', webComponent: 'form', fn: 'closeForm'},
+    { nameMethod: 'closeForm', fn: 'closeForm' },
   ],
 };
 
@@ -56,6 +56,11 @@ const bindComponentsToData = async (formDefinition) => {
             el.webComponents[attr.webComponent].attrs[attr.nameParam] = value;
           },
         });
+      };
+
+      for (const i in elementSpecification.methods) {
+        const method = elementSpecification.methods[i];
+        el[method.nameMethod] = async () => api.workspace.runFormHook(formDefinition.id, method.fn);
       };
 
     };

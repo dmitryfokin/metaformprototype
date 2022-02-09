@@ -5,7 +5,7 @@ export default ({ formDefinition }) => ({
     formDefinition,
     formElement: formDefinition.formElements.$form,
   },
-  attrs:{class: 'modal-header'},
+  attrs: { class: 'modal-header' },
   styles: {
     display: 'flex',
     flexShrink: 0,
@@ -18,6 +18,7 @@ export default ({ formDefinition }) => ({
   },
   hooks: {
     init() {
+      console.log('formHead init');
       this.state.formElement.webComponents.formHead = this;
     },
   },
@@ -38,6 +39,10 @@ export default ({ formDefinition }) => ({
     {
       tag: 'button',
       //text: 'X',
+      state: {
+        formDefinition,
+        formElement: formDefinition.formElements.$form,
+      },
       attrs: {
         type: 'button',
         class: 'btn-close btn-close-white',
@@ -50,7 +55,13 @@ export default ({ formDefinition }) => ({
           console.log('btn close onclick');
           console.dir(this);
           console.dir(event);
+          console.dir(this.state.formElement);
           //this.state.formDefinition.methods.closeForm();
+        },
+      },
+      hooks: {
+        init() {
+          console.log('formHead btn close init');
         },
       },
     }
