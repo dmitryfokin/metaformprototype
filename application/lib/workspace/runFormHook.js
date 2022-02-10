@@ -2,7 +2,7 @@ async ({ context, hook, idForm }) => {
   const form = context.formsManager.forms.get(idForm);
 
   //console.debug(hook);
-  console.debug(form);
+  //console.debug(form);
   // if (!context.formsManager) context.formsManager = {
   //   forms: new Map(),
   // };

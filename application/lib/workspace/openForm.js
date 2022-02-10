@@ -8,12 +8,6 @@ async ({ context, pathToForm }) => {
 
   const formData = domain.systemForms.applicationConfiguratorForm;
 
-  const formModuleFront = "";
-
-  for (const key of Object.keys(formData.formModule)) {
-    console.debug(key);
-  };
-
   context.formsManager.forms.set(context.counterIDForms, {
     id: context.counterIDForms,
     pathToForm,
