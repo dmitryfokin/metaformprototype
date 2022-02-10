@@ -45,6 +45,10 @@ window.addEventListener('load', async () => {
   }
   if (logged) {
     const res = await api.workspace.init();
+    console.log({res});
+    // if (res.token) {
+    //   localStorage.setItem('metarhia.session.token', res.token);
+    // }
   }
 
   bootstrap({
