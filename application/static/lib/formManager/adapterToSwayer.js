@@ -11,7 +11,7 @@ const FORM_ELEMENT = {
     { nameData: 'hidden', webComponent: 'form', nameParam: 'hidden', },
   ],
   methods: [
-    { nameMethod: 'closeForm', fn: 'closeForm' },
+    { nameMethod: 'closeForm', action: 'closeForm' },
   ],
 };
 

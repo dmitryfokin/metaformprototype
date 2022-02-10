@@ -40,7 +40,11 @@ window.addEventListener('load', async () => {
     const res = await api.auth.signin({ login: 'marcus', password: 'marcus' });
     if (res.token) {
       localStorage.setItem('metarhia.session.token', res.token);
+      logged = true;
     }
+  }
+  if (logged) {
+    const res = await api.workspace.init();
   }
 
   bootstrap({

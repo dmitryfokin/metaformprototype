@@ -1,8 +1,6 @@
 ({
-  //access: 'public',
-
   method: async ({ pathToForm }) => {
-    const formData = await lib.workspace.openForm(
+    const formData = await context.formsManager.openForm(
         { context, pathToForm }
       );
     return { pathToForm, formData };
